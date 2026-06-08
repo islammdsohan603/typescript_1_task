@@ -1,9 +1,8 @@
-// array and tuple
-
-let array: number[] = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-
-array.pop();
-
-for (let i = 0; i < array.length; i++) {
-  console.log(array[i]);
+for (let i: number = 0; i <= 100; i++) {
+  if (i % 3 === 0) {
+    console.log(`${i} is a multiple of 3`);
+  }
+  if (i % 2 === 0) {
+    console.log(`${i} is a multiple of 2`);
+  }
 }
