@@ -1,9 +1,9 @@
-let studentName: string = 'John Doe';
-let studentAge: number = 20;
-let isEnrolled: boolean = true;
-let courses: string[] = ['Math', 'Science', 'History'];
+// array and tuple
 
-console.log(studentName);
-console.log(studentAge);
-console.log(isEnrolled);
-console.log(courses);
+let array: number[] = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+array.pop();
+
+for (let i = 0; i < array.length; i++) {
+  console.log(array[i]);
+}
