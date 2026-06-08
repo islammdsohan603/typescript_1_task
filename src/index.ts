@@ -1,5 +1,9 @@
-function add(a: number, b: number): number {
-  return a + b;
-}
+let studentName: string = 'John Doe';
+let studentAge: number = 20;
+let isEnrolled: boolean = true;
+let courses: string[] = ['Math', 'Science', 'History'];
 
-console.log(add(2, 3));
+console.log(studentName);
+console.log(studentAge);
+console.log(isEnrolled);
+console.log(courses);
