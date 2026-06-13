@@ -1,5 +1,17 @@
-function greet(firstName: string, lastname: string, title?: string): string {
-  return `Hello ${firstName} ${lastname} ${title}`;
-}
+// Array function
 
-console.log(greet('MD.', 'Sohan', 'Web Developer'));
+const items: { item: string; price: number }[] = [
+  { item: 'sohan', price: 100 },
+  { item: 'jane', price: 200 },
+  { item: 'john', price: 300 },
+  { item: 'jane', price: 400 },
+  { item: 'john', price: 500 },
+  { item: 'jane', price: 600 },
+  { item: 'john', price: 700 },
+  { item: 'jane', price: 800 },
+  { item: 'john', price: 900 },
+  { item: 'jane', price: 1000 },
+];
+
+const total = items.map(item => item);
+console.log(total);
