@@ -1,10 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-let value = 'hello';
-if (typeof value === 'string') {
-    console.log(value.toUpperCase());
+function greet(firstName, lastname, title) {
+    return `Hello   ${firstName} ${lastname} ${title}`;
 }
-else {
-    console.log('Value is not a string');
-}
+console.log(greet('MD.', 'Sohan', 'Web Developer'));
 //# sourceMappingURL=index.js.map

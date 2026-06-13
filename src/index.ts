@@ -1,7 +1,5 @@
-let value: unknown = 'hello';
-
-if (typeof value === 'string') {
-  console.log(value.toUpperCase());
-} else {
-  console.log('Value is not a string');
+function greet(firstName: string, lastname: string, title?: string): string {
+  return `Hello ${firstName} ${lastname} ${title}`;
 }
+
+console.log(greet('MD.', 'Sohan', 'Web Developer'));
