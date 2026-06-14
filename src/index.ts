@@ -1,17 +1,22 @@
-// Array function
+//  calculater projects
 
-const items: { item: string; price: number; bool: boolean }[] = [
-  { item: 'sohan', price: 100, bool: true },
-  { item: 'jane', price: 200, bool: false },
-  { item: 'john', price: 300, bool: true },
-  { item: 'jane', price: 400, bool: false },
-  { item: 'john', price: 500, bool: true },
-  { item: 'jane', price: 600, bool: false },
-  { item: 'john', price: 700, bool: true },
-  { item: 'jane', price: 800, bool: false },
-  { item: 'john', price: 900, bool: true },
-  { item: 'jane', price: 1000, bool: false },
-];
+function add(a: number, b: number) {
+  return a + b;
+}
 
-const total = items.map(item => item.bool);
-console.log(total);
+function subtract(a: number, b: number) {
+  return a - b;
+}
+
+function multiply(a: number, b: number) {
+  return a * b;
+}
+
+function divide(a: number, b: number) {
+  return a / b;
+}
+
+console.log(add(1, 2));
+console.log(subtract(1, 2));
+console.log(multiply(1, 2));
+console.log(divide(1, 2));
