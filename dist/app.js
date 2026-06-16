@@ -7,4 +7,10 @@ function getProducts(id) {
 }
 getProducts(123);
 getProducts('sohan2026');
+const arr = {
+    name: 'sohan',
+    id: '15sew',
+    isAdmin: true,
+};
+console.log(arr);
 //# sourceMappingURL=app.js.map
