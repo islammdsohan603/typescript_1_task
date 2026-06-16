@@ -13,4 +13,10 @@ const arr = {
     isAdmin: true,
 };
 console.log(arr);
+function handleAction(action) {
+    console.log(`Action : ${action}`);
+}
+handleAction('submit');
+handleAction('start');
+handleAction('pause');
 //# sourceMappingURL=app.js.map

@@ -27,3 +27,15 @@ const arr: AdminUser = {
 };
 
 console.log(arr);
+
+// Literal Types
+
+type Action = 'start' | 'stop' | 'pause' | 'submit';
+
+function handleAction(action: Action) {
+  console.log(`Action : ${action}`);
+}
+
+handleAction('submit');
+handleAction('start');
+handleAction('pause');
