@@ -1,9 +1,11 @@
 "use strict";
-// step 1 creact an interface of an animal
 Object.defineProperty(exports, "__esModule", { value: true });
-const myDog = {
-    name: 'Tommy',
-    breed: 'Goald',
+const author1 = {
+    id: 125,
+    username: 'sohan',
+    email: 'islammdsohan603@gamil.com',
+    bip: 'my name isla ',
+    posts: ['sohamy df', 'sohferfel', 'sdfh'],
 };
-console.log(myDog);
+console.log(author1);
 //# sourceMappingURL=app.js.map
