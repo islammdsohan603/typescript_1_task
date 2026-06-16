@@ -1,32 +1,18 @@
-// type alias
+// step 1 creact an interface of an animal
 
-type User = {
+interface Animal {
   name: string;
-  age: number;
-  email: string;
+}
+
+// step 2 create and interface of an dog
+
+interface Dog extends Animal {
+  breed: string;
+}
+
+const myDog: Dog = {
+  name: 'Tommy',
+  breed: 'Goald',
 };
 
-// define interface
-
-interface UserProfile {
-  name: string;
-  age: number;
-  email: string;
-}
-
-// marge the
-
-interface Person {
-  name: string;
-}
-
-interface Person {
-  age: number;
-}
-
-const info: Person = {
-  name: 'sohan',
-  age: 20,
-};
-
-console.log(info);
+console.log(myDog);
