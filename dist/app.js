@@ -1,11 +1,10 @@
 "use strict";
+// union types
 Object.defineProperty(exports, "__esModule", { value: true });
-const author1 = {
-    id: 125,
-    username: 'sohan',
-    email: 'islammdsohan603@gamil.com',
-    bip: 'my name isla ',
-    posts: ['sohamy df', 'sohferfel', 'sdfh'],
-};
-console.log(author1);
+let value;
+function getProducts(id) {
+    console.log(`Fetching product with id ${id}`);
+}
+getProducts(123);
+getProducts('sohan2026');
 //# sourceMappingURL=app.js.map

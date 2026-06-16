@@ -1,24 +1,10 @@
-interface User {
-  id: number;
-  username: string;
-  email: string;
+// union types
+
+let value: string | number;
+
+function getProducts(id: string | number) {
+  console.log(`Fetching product with id ${id}`);
 }
 
-// step 2
-
-interface Author extends User {
-  bip: string;
-  posts: string[];
-}
-
-type Status = 'active' | 'inactive' | 'banned';
-
-const author1: Author = {
-  id: 125,
-  username: 'sohan',
-  email: 'islammdsohan603@gamil.com',
-  bip: 'my name isla ',
-  posts: ['sohamy df', 'sohferfel', 'sdfh'],
-};
-
-console.log(author1);
+getProducts(123);
+getProducts('sohan2026');
