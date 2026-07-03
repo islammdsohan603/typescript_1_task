@@ -1,22 +1,14 @@
 "use strict";
-// union types
+// type narrowing
 Object.defineProperty(exports, "__esModule", { value: true });
-let value;
-function getProducts(id) {
-    console.log(`Fetching product with id ${id}`);
+function log(value) {
+    if (typeof value === 'string') {
+        console.log(value.toUpperCase());
+    }
+    else {
+        console.log(value.toFixed(2));
+    }
 }
-getProducts(123);
-getProducts('sohan2026');
-const arr = {
-    name: 'sohan',
-    id: '15sew',
-    isAdmin: true,
-};
-console.log(arr);
-function handleAction(action) {
-    console.log(`Action : ${action}`);
-}
-handleAction('submit');
-handleAction('start');
-handleAction('pause');
+log('hello'); // Output: HELLO
+log(3.14159); // Output: 3.14
 //# sourceMappingURL=app.js.map
