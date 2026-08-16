@@ -1,12 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-const User = {
-    name: 'md. sohan',
-    email: 'islammdsohan603@gmail.com',
-    password: 'sohan123'
-};
-console.log(User.name || undefined);
-for (const key in User) {
-    console.log(key, User[key]);
-}
+const projectPrice = [1240, 4589, 25, 698, 47, 689, 58, 69, 258, 78];
+const totalPrice = projectPrice.reduce((total, index) => (total + index));
+console.log(totalPrice);
 //# sourceMappingURL=spart.js.map
