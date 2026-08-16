@@ -1,10 +1,12 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-const objectItem = {
-    name: "sohan",
-    email: "islammdsohan603@gmail.com"
+const User = {
+    name: 'md. sohan',
+    email: 'islammdsohan603@gmail.com',
+    password: 'sohan123'
 };
-for (const key in objectItem) {
-    console.log(key, objectItem[key]);
+console.log(User.name || undefined);
+for (const key in User) {
+    console.log(key, User[key]);
 }
 //# sourceMappingURL=spart.js.map

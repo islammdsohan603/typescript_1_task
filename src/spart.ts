@@ -1,9 +1,15 @@
-const objectItem:{name:string,email:string} = {
-    name:"sohan",
-    email:"islammdsohan603@gmail.com"
-}
+ const User:{
+    name:string,
+     email:string,
+     password:string,
+ }={
+    name:'md. sohan',
+     email:'islammdsohan603@gmail.com',
+     password:'sohan123'
+ }
 
+ console.log(User.name || undefined)
 
-for(const key in objectItem){
-    console.log(key,objectItem[key as keyof typeof objectItem]);
-}
+ for (const key in User){
+     console.log(key, User[key as keyof typeof User])
+ }
