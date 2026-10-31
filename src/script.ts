@@ -1,6 +1,7 @@
-// array and tuple an
+// array , tuple
 
-const arr: Array<string> = ["sohan", "sohag"];
+const resultGrad: number[] = [52.63, 89.58, 58.5];
 
-console.log(typeof arr);
-console.log(arr);
+const dataLatLong: [number, number] = [23.8103, 90.4125];
+console.log(dataLatLong);
+console.log(resultGrad);
