@@ -1,19 +1,15 @@
-// rest parameters(...args)
+// Objects type, type alias and interface
 
-const sum = (...numbers: number[]) => {
-  return numbers.reduce((total, sum) => total + sum, 0);
+const user: {
+  name: string;
+  age: number;
+  isActive: boolean;
+  badGroup: string[];
+} = {
+  name: "sohan",
+  age: 21,
+  isActive: true,
+  badGroup: ["B+"],
 };
 
-const total = sum(10, 20, 30, 25);
-
-console.log(total);
-
-const logUserAction = (...args: [string, number, boolean]) => {
-  const [name, age, maride] = args;
-
-  return name + " " + age;
-};
-
-const userStatus = logUserAction("MD SOHAN", 20, false);
-
-console.log(userStatus);
+console.log(user);
