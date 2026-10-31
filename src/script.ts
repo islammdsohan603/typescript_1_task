@@ -1,10 +1,8 @@
-// default parameters
+// userinfo
 
-const concatName = (fname: string, lname?: string) => {
-  if (!lname) {
-    return false;
-  }
-
-  return fname + " " + lname;
+const userInfo = (name: string, country: string = "Bangladesh"): string => {
+  return `${name} - ${country}`;
 };
-console.log(concatName("SOHAN"));
+
+console.log(userInfo("Sohan"));
+console.log(userInfo("Rahim", "India"));
