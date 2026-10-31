@@ -1,7 +1,6 @@
-const addTwo = (a: number, b: number) => {
-  return a + b;
-};
+// array and tuple an
 
-const result = addTwo(9, 5);
+const arr: Array<string> = ["sohan", "sohag"];
 
-console.log(result);
+console.log(typeof arr);
+console.log(arr);
