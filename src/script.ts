@@ -1,7 +1,10 @@
-// array , tuple
+// default parameters
 
-const resultGrad: number[] = [52.63, 89.58, 58.5];
+const concatName = (fname: string, lname?: string) => {
+  if (!lname) {
+    return false;
+  }
 
-const dataLatLong: [number, number] = [23.8103, 90.4125];
-console.log(dataLatLong);
-console.log(resultGrad);
+  return fname + " " + lname;
+};
+console.log(concatName("SOHAN"));
