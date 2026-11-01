@@ -1,27 +1,14 @@
-// Default Parameter + Optional Parameter
+// Rest Parameters
 
-function createUser(
-  name: string,
-  email: string,
-  role: "admin" | "user" = "user",
-  phone?: string,
-) {
-  if (!name || !email) {
-    throw new Error("Name and email are required");
-  }
-
-  // Create and return the user object
-  return {
-    name,
-    email,
-    role,
-    phone,
-  };
+function calculateTotal(...marks: number[]): number {
+  return marks.reduce((total, mark) => total + mark, 0);
 }
 
-// Function Call
-console.log(
-  createUser("Sohan", "islammdsohan603@gmail.com", "user", "01849468455"),
-);
+const marks = [85, 90, 78, 92, 89, 79, 98];
 
-console.log(createUser("Sohan", "sohan@gmail.com"));
+const totalMarks = calculateTotal(...marks);
+
+const averageMarks = marks.length > 0 ? totalMarks / marks.length : 0;
+
+console.log(`Total Marks: ${totalMarks}`);
+console.log(`Average Marks: ${averageMarks.toFixed(2)}`);
