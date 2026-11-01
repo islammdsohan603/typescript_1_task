@@ -1,13 +1,33 @@
-const numbers: number[] = [1, 2, 5, 9, 8, 7, 589, 7, 75];
+// students tuple createing now
 
-const numberArray = numbers.map((num: number) => console.log(num));
+type students = {
+  name: string;
+  age: number;
+  result: number;
+};
 
-const filteredNumbers = numbers.filter((num: number) => num > 5);
+const student1: students = {
+  name: "John",
+  age: 20,
+  result: 85,
+};
 
-console.log(`filter numbers ${filteredNumbers}`);
+const student2: students = {
+  name: "Alice",
+  age: 22,
+  result: 90,
+};
 
-const totalNumbers = numbers.reduce(
-  (total: number, num: number) => total + num,
-  0,
-);
-console.log(`total numbers ${totalNumbers}`);
+console.log(`Student 1:`, student1);
+console.log(`Student 2:`, student2);
+
+const studentsArray: students[] = [student1, student2];
+console.log(`Students Array:`, studentsArray);
+
+// students array with map method
+
+const studentNames = studentsArray.map((student) => {
+  return student.name;
+});
+
+console.log(`Student Names:`, studentNames);
