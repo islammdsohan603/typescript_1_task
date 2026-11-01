@@ -1,46 +1,40 @@
-// Interface + Extends
-
-// Parent Interface
-interface User {
+interface Employee {
   readonly id: number;
   name: string;
   email: string;
-  age: number;
+  salary: number;
 }
 
-// Child Interface
-interface Admin extends User {
-  role: string;
-  permissions: string[];
-  isAdmin: boolean;
+interface Manager extends Employee {
+  department: string;
+  teamSize: number;
+  isManager: boolean;
 }
 
-// Normal User
-const normalUser: User = {
+const employee1: Employee = {
   id: 1,
   name: "John Doe",
   email: "john.doe@example.com",
-  age: 30,
+  salary: 50000,
 };
 
-// Admin User
-const adminUser: Admin = {
+const manager1: Manager = {
   id: 2,
-  name: "Sohan",
-  email: "sohan@gmail.com",
-  age: 20,
-  role: "admin",
-  permissions: ["create", "update", "delete"],
-  isAdmin: true,
+  name: "Jane Smith",
+  email: "jane.smith@example.com",
+  salary: 60000,
+  department: "Sales",
+  teamSize: 10,
+  isManager: true,
 };
 
-// Display Admin Information
-function displayAdminInfo(admin: Admin): void {
-  console.log("Admin Name:", admin.name);
-  console.log("Role:", admin.role);
-  console.log("Permissions:", admin.permissions.join(", "));
-  console.log("Is Admin:", admin.isAdmin);
+function displayManagerInfo(manager: Manager): void {
+  console.log(`Manager Name: ${manager.name}`);
+  console.log(`Email: ${manager.email}`);
+  console.log(`Salary: ${manager.salary}`);
+  console.log(`Department: ${manager.department}`);
+  console.log(`Team Size: ${manager.teamSize}`);
+  console.log(`Is Manager: ${manager.isManager}`);
 }
 
-// Function Call
-displayAdminInfo(adminUser);
+displayManagerInfo(manager1);
