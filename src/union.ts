@@ -30,8 +30,19 @@ type User = Admin | Member;
 
 const user: User = { id: 864570, role: "admin", privileges: ["abc", "dfow"] };
 
-console.log(user);
+// console.log(user);
 
 const admin: User = { id: 78, role: "member", plans: ["dfkl"] };
 
-console.log(admin);
+// console.log(admin);
+
+function printId(id: string | number) {
+  if (typeof id === "string") {
+    console.log(id.toUpperCase());
+  } else {
+    console.log(id.toFixed(2));
+  }
+}
+
+printId("user-101");
+printId(101);
