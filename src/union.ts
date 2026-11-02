@@ -3,7 +3,7 @@
 type Status = "Pending";
 const status: Status = "Pending";
 
-console.log(status);
+// console.log(status);
 
 // Basic Union
 
@@ -12,4 +12,10 @@ const id: Identity = "864570";
 const name: Identity = "sohan";
 const age: Identity = 21;
 
-console.log(`Name: ${name} ID: ${id}   AGE: ${age}`);
+// console.log(`Name: ${name} ID: ${id}   AGE: ${age}`);
+
+// Literal Union
+
+type Role = "user" | "admin";
+const userRole: Role = "admin";
+console.log(userRole);
