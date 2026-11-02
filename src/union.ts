@@ -1,17 +1,46 @@
-type ID = number;
-
-type userrole = "admin" | "user";
-
-interface User {
+interface userdata {
   name: string;
-  id: ID;
-  role: userrole;
+  age: number;
 }
 
-const userData: User = {
+interface UserRole extends userdata {
+  role: string;
+}
+
+const user: UserRole = {
   name: "sohan",
-  id: 8564,
-  role: "admin",
+  age: 22,
+  role: "Software Developer",
 };
 
-console.log(userData);
+// console.log(user);
+
+type Vehicle = {
+  brand: string;
+};
+
+type Car = Vehicle & {
+  model: string;
+};
+
+const car: Car = {
+  brand: "BMW",
+  model: "89eEe",
+};
+
+// console.log(car);
+
+interface IEmployee {
+  name: string;
+}
+
+interface IEmployee {
+  id: number;
+}
+
+const employee: IEmployee = {
+  id: 864,
+  name: "ABEE",
+};
+
+console.log(employee);
