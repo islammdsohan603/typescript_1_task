@@ -1,78 +1,76 @@
-
 type BankAccount = {
   readonly accountNumber: string;
   accountHolderName: string;
   balance: number;
   accountType: "savings" | "current";
+  accountHolderNameAge: number;
 };
 
-// All Bank Accounts
-const bankAccounts: BankAccount[] = [
+const bankAccount: BankAccount[] = [
   {
-    accountNumber: "123456789",
+    accountNumber: "1234567890",
     accountHolderName: "John Doe",
     balance: 1000,
     accountType: "savings",
+    accountHolderNameAge: 30,
   },
   {
-    accountNumber: "987654321",
+    accountNumber: "0987654321",
     accountHolderName: "Jane Smith",
     balance: 2000,
     accountType: "current",
+    accountHolderNameAge: 25,
+  },
+  {
+    accountNumber: "5678901234",
+    accountHolderName: "Alice Johnson",
+    balance: 1500,
+    accountType: "savings",
+    accountHolderNameAge: 18,
   },
 ];
 
-// Deposit Function
-function deposit(
-  accountNumber: string,
-  amount: number
-): number {
+// deposit function
+
+function deposit(accountNumber: string, amount: number) {
   if (amount <= 0) {
-    throw new Error("Deposit amount must be greater than zero");
+    throw new Error("Deposit amount must be greater than zero.");
   }
 
-  const account = bankAccounts.find(
-    (account) => account.accountNumber === accountNumber
+  const account = bankAccount.find(
+    (acc) => acc.accountNumber === accountNumber,
   );
-
   if (!account) {
-    throw new Error("Account not found");
+    throw new Error("Account not found.");
   }
 
   account.balance += amount;
-
-  return account.balance;
 }
 
-// Withdraw Function
-function withdraw(
-  accountNumber: string,
-  amount: number
-): number {
+// withdraw function
+
+function withdraw(accountNumber: string, amount: number) {
   if (amount <= 0) {
-    throw new Error("Withdraw amount must be greater than zero");
+    throw new Error("Withdrawal amount must be greater than zero.");
   }
 
-  const account = bankAccounts.find(
-    (account) => account.accountNumber === accountNumber
+  const account = bankAccount.find(
+    (acc) => acc.accountNumber === accountNumber,
   );
-
   if (!account) {
-    throw new Error("Account not found");
+    throw new Error("Account not found.");
   }
 
   if (account.balance < amount) {
-    throw new Error("Insufficient balance");
+    throw new Error("Insufficient balance.");
   }
 
   account.balance -= amount;
-
-  return account.balance;
 }
 
-// Function Calls
-console.log("After Deposit:", deposit("123456789", 500));
+console.log("Before withdrawal:", bankAccount);
+withdraw("1234567890", 500);
+console.log("After withdrawal:", bankAccount);
 
-console.log("After Withdraw:", withdraw("123456789", 200));
-
-console.log("Jane's Balance:", bankAccounts[1].balance);
+deposit("0987654321", 1000);
+console.log("After deposit:", bankAccount);
