@@ -1,7 +1,4 @@
-type InfoFunction = (name: string, age: number, city: string) => string;
+// import { greeting } from "./module_2.js";
 
-const info: InfoFunction = (name, age, city) => {
-  return `My name is ${name}, I am ${age} years old and I live in ${city}.`;
-};
-
-console.log(info("Alice", 30, "New York"));
+import "./module_2.js";
+import "./union.js";
