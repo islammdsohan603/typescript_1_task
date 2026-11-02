@@ -1,48 +1,19 @@
-// Literal Types
+// problam 3
 
-type Status = "Pending";
-const status: Status = "Pending";
+type UserRole = "admin" | "user" | "reporter";
 
-// console.log(status);
+const gerDashboard = (role: UserRole): string => {
+  switch (role) {
+    case "admin":
+      return "/deashboard/admin";
 
-// Basic Union
-
-type Identity = string | number;
-const id: Identity = "864570";
-const name: Identity = "sohan";
-const age: Identity = 21;
-
-// console.log(`Name: ${name} ID: ${id}   AGE: ${age}`);
-
-// Literal Union
-
-type Role = "user" | "admin";
-const userRole: Role = "admin";
-// console.log(userRole);
-
-// Object Union
-
-type Admin = { id: number; role: "admin"; privileges: string[] };
-
-type Member = { id: number; role: "member"; plans: string[] };
-
-type User = Admin | Member;
-
-const user: User = { id: 864570, role: "admin", privileges: ["abc", "dfow"] };
-
-// console.log(user);
-
-const admin: User = { id: 78, role: "member", plans: ["dfkl"] };
-
-// console.log(admin);
-
-function printId(id: string | number) {
-  if (typeof id === "string") {
-    console.log(id.toUpperCase());
-  } else {
-    console.log(id.toFixed(2));
+    case "reporter":
+      return "/deashboard/reporter";
+    case "user":
+      return "/deashboard/user";
   }
-}
+};
 
-printId("user-101");
-printId(101);
+console.log(gerDashboard("admin"));
+console.log(gerDashboard("reporter"));
+console.log(gerDashboard("user"));
