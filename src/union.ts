@@ -1,42 +1,46 @@
-type User = {
+// problem 1
+
+type Priduct = {
+  id: string;
+  name: string;
+  price: number;
+  category?: string;
+  stock?: number;
+};
+
+const product1: Priduct = {
+  id: "sohn34",
+  name: "PC",
+  price: 14897,
+  category: "EL",
+};
+
+console.log(product1);
+
+interface problem2
+
+interface Students {
   name: string;
   age: number;
   email: string;
-};
+  marks?: number[];
+  phone?: number;
+}
 
-const user: User = {
-  name: "MD.SOHAN",
+const students1: Students = {
+  name: "sohan",
   age: 21,
-  email: "islammdsohan@gmail.com",
+  email: "sohan@gmail.com",
+  marks: [15, 8, 69],
 };
 
-// console.log(user);
+console.log(students1);
 
-// Primitive type
-type UserName = string;
-const name: UserName = "sohan";
-// console.log(name);
+const studentsMarks = students1.marks;
 
-// Union type
+if (studentsMarks) {
 
-type userRole = "admin" | "user";
-
-const role: userRole = "admin";
-// console.log(role);
-
-// array type
-
-type Numbers = number[];
-
-const marks: Numbers = [10, 20, 30, 45];
-// console.log(marks);
-
-// Function type
-
-type AddFunction = (a: number, b: number) => number;
-
-const add: AddFunction = (a, b) => {
-  return a + b;
-};
-
-// console.log(add(52, 25));
+  for (let x of studentsMarks) {
+    console.log(x);
+  }
+}
