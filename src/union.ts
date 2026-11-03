@@ -14,4 +14,32 @@ const print = (value: string | number) => {
   }
 };
 
-console.log(print("sohS"));
+// console.log(print("sohS"));
+
+// truthiness
+
+type User = {
+  name: string;
+  address: {
+    street: string;
+  };
+} | null;
+
+const loggedInUser: User = {
+  name: "sohan",
+  address: {
+    street: "Tangail",
+  },
+};
+
+const showAddress = (user: User) => {
+  if (user) {
+    console.log(user.address.street);
+  } else {
+    console.log("User not found!");
+  }
+};
+
+showAddress(loggedInUser);
+
+showAddress(null);
