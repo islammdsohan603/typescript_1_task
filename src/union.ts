@@ -11,3 +11,17 @@ const showStatus = (status: Status) => {
 };
 
 // showStatus(someStatus as Status);
+
+// non-null assertion
+
+interface Config {
+  port?: number;
+}
+
+const config: Config = {
+  port: 5000,
+};
+
+const currentPort: number = config.port!;
+// const currentPort: number = config.port as number;
+// console.log(currentPort);
