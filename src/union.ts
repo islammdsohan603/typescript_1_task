@@ -1,59 +1,68 @@
-//* typeof narrowing down
+// problam1 literal type
 
-let x = 12;
+type Status = "active";
 
-// console.log(typeof x === "number");
+const status: Status = "active";
+// console.log(status);
 
-// type guard
+// problem2 Basic union
 
-const print = (value: string | number) => {
-  if (typeof value === "string") {
-    return value.toUpperCase();
+type ProductId = string | number;
+
+function product(id: ProductId) {
+  console.log(id);
+}
+
+// product("sohan14");
+
+type UserRole = "admin" | "reporter" | "user";
+
+function userDashboard(user: UserRole) {
+  if (user === "admin") {
+    return "/dashboard/admin";
+  } else if (user === "reporter") {
+    return "/dashboard/reporter";
   } else {
-    return value;
+    return "/dashbord/user";
   }
+}
+
+// console.log(userDashboard("admin"));
+// console.log(userDashboard("reporter"));
+// console.log(userDashboard("user"));
+
+// problem4 object union
+
+type TextNotification = {
+  type: "text";
+  content: string;
+};
+type FileNotification = {
+  type: "file";
+  fileName: string;
+  fileUrl: string;
+};
+type ImageNotification = {
+  type: "image";
+  content: string;
 };
 
-// console.log(print("sohS"));
+type AppNotification = TextNotification | FileNotification | ImageNotification;
 
-// truthiness
-
-type User = {
-  name: string;
-  address?: {
-    street: string;
-  };
-} | null;
-
-const loggedInUser: User = {
-  name: "sohan",
-  address: {
-    street: "Tangail",
-  },
+const notification1: AppNotification = {
+  type: "text",
+  content: "sohanf.tsc",
+};
+const notification2: AppNotification = {
+  type: "image",
+  content: "sohan.png",
+};
+const notification3: AppNotification = {
+  type: "file",
+  fileName: "ug/elrj",
+  fileUrl: "dls;fi",
 };
 
-const showAddress = (user: User) => {
-  if (user && user.address) {
-    console.log(user.address.street);
-  } else {
-    console.log("User not found!");
-  }
-};
-
-// showAddress(loggedInUser);
-
-// some caveat of type fuard
-
-const printAll = (x: string | string[] | null) => {
-  if (x && typeof x === "object") {
-    for (let str of x) {
-      console.log(str);
-    }
-  } else if (typeof x === "string") {
-    console.log(x);
-  } else {
-    console.log("");
-  }
-};
-
-// printAll("sohan");
+console.log(notification1);
+console.log(notification2);
+console.log(notification3);
