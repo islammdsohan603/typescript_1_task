@@ -20,7 +20,7 @@ const print = (value: string | number) => {
 
 type User = {
   name: string;
-  address: {
+  address?: {
     street: string;
   };
 } | null;
@@ -33,13 +33,27 @@ const loggedInUser: User = {
 };
 
 const showAddress = (user: User) => {
-  if (user) {
+  if (user && user.address) {
     console.log(user.address.street);
   } else {
     console.log("User not found!");
   }
 };
 
-showAddress(loggedInUser);
+// showAddress(loggedInUser);
 
-showAddress(null);
+// some caveat of type fuard
+
+const printAll = (x: string | string[] | null) => {
+  if (x && typeof x === "object") {
+    for (let str of x) {
+      console.log(str);
+    }
+  } else if (typeof x === "string") {
+    console.log(x);
+  } else {
+    console.log("");
+  }
+};
+
+// printAll("sohan");
