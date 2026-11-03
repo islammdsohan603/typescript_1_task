@@ -1,46 +1,58 @@
-interface userdata {
-  name: string;
-  age: number;
-}
+// top types
 
-interface UserRole extends userdata {
-  role: string;
-}
+let x: any = "Sohan";
+x = 125;
+// console.log(x);
 
-const user: UserRole = {
-  name: "sohan",
-  age: 22,
-  role: "Software Developer",
-};
+let name: unknown = "sohn";
+name = 455;
 
-// console.log(user);
+// console.log(name);
 
-type Vehicle = {
-  brand: string;
-};
+let hell: unknown = "Hello World";
 
-type Car = Vehicle & {
-  model: string;
-};
+// console.log(hell);
 
-const car: Car = {
-  brand: "BMW",
-  model: "89eEe",
-};
+// core types
 
-// console.log(car);
+let something: unknown;
 
-interface IEmployee {
+let num1: number = 123;
+
+// something = name1;
+
+// console.log(something);
+
+// nullish type
+
+interface User {
   name: string;
 }
 
-interface IEmployee {
-  id: number;
-}
+type LogiedInUser = User | null;
 
-const employee: IEmployee = {
-  id: 864,
-  name: "ABEE",
+const currentUser: LogiedInUser = null;
+
+// Unit types
+
+const greet = () => {
+  console.log("Hello World");
 };
 
-console.log(employee);
+const greetings: string | void = greet();
+
+// sub-type of unit type
+
+const anotherGreet = (): void => {
+  console.log("Hello world");
+  return undefined;
+};
+
+// bottom type
+
+const getError = (msg: string): never => {
+  throw new Error(msg);
+};
+
+const X: string = getError("Sohan");
+console.log(X);
