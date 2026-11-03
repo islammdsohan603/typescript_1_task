@@ -25,3 +25,10 @@ const config: Config = {
 const currentPort: number = config.port!;
 // const currentPort: number = config.port as number;
 // console.log(currentPort);
+
+// constant assertion
+
+const configuration = {
+  port: 8000,
+  prefix: "/api/user",
+} as const;
