@@ -1,68 +1,42 @@
-// problam1 literal type
-
-type Status = "active";
-
-const status: Status = "active";
-// console.log(status);
-
-// problem2 Basic union
-
-type ProductId = string | number;
-
-function product(id: ProductId) {
-  console.log(id);
-}
-
-// product("sohan14");
-
-type UserRole = "admin" | "reporter" | "user";
-
-function userDashboard(user: UserRole) {
-  if (user === "admin") {
-    return "/dashboard/admin";
-  } else if (user === "reporter") {
-    return "/dashboard/reporter";
-  } else {
-    return "/dashbord/user";
-  }
-}
-
-// console.log(userDashboard("admin"));
-// console.log(userDashboard("reporter"));
-// console.log(userDashboard("user"));
-
-// problem4 object union
-
-type TextNotification = {
-  type: "text";
-  content: string;
-};
-type FileNotification = {
-  type: "file";
-  fileName: string;
-  fileUrl: string;
-};
-type ImageNotification = {
-  type: "image";
-  content: string;
+type User = {
+  name: string;
+  age: number;
+  email: string;
 };
 
-type AppNotification = TextNotification | FileNotification | ImageNotification;
-
-const notification1: AppNotification = {
-  type: "text",
-  content: "sohanf.tsc",
-};
-const notification2: AppNotification = {
-  type: "image",
-  content: "sohan.png",
-};
-const notification3: AppNotification = {
-  type: "file",
-  fileName: "ug/elrj",
-  fileUrl: "dls;fi",
+const user: User = {
+  name: "MD.SOHAN",
+  age: 21,
+  email: "islammdsohan@gmail.com",
 };
 
-console.log(notification1);
-console.log(notification2);
-console.log(notification3);
+// console.log(user);
+
+// Primitive type
+type UserName = string;
+const name: UserName = "sohan";
+// console.log(name);
+
+// Union type
+
+type userRole = "admin" | "user";
+
+const role: userRole = "admin";
+// console.log(role);
+
+// array type
+
+type Numbers = number[];
+
+const marks: Numbers = [10, 20, 30, 45];
+// console.log(marks);
+
+// Function type
+
+type AddFunction = (a: number, b: number) => number;
+
+const add: AddFunction = (a, b) => {
+  return a + b;
+};
+
+// console.log(add(52, 25));
