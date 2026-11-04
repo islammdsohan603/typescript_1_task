@@ -1,15 +1,38 @@
-const printAll = (x: string | string[] | null) => {
-  if (x !== null) {
-    if (typeof x === "object") {
-      for (let str of x) {
-        console.log(str);
-      }
-      return;
-    }
-    console.log(x);
+// in operator
+
+type Bird = { fly: () => void };
+type Fish = { swim: () => void };
+
+const move = (animal: Bird | Fish) => {
+  if ("fly" in animal) {
+    animal.fly();
     return;
   }
-  console.log("");
+
+  animal.swim();
 };
 
-printAll(["sohan", "sohag"]);
+// discriminated union
+
+interface Circl {
+  kind: "circle";
+  redius: number;
+}
+
+interface Square {
+  kind: "square";
+  sideLength: number;
+}
+
+const getArea = (shape: Circl | Square) => {
+  if (shape.kind === "circle") {
+    console.log(shape.redius);
+  } else {
+    console.log(shape.sideLength);
+  }
+};
+
+getArea({
+  kind: "circle",
+  redius: 4,
+});
