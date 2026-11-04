@@ -1,37 +1,24 @@
-interface BaseUser {
+type Person = {
   name: string;
   email: string;
-  id: string | number;
-  phone?: string;
-}
+  age: number;
+};
 
-interface Admin extends BaseUser {
-  role: "admin";
-  permissions: string[];
-}
+type Employee = {
+  employeeId: string;
+  salary: number;
+  department: string;
+};
 
-interface Reporter extends BaseUser {
-  role: "reporter";
-  permission: string[];
-}
+type EmployeeDetails = Person & Employee;
 
-type UserRole = Admin | Reporter;
+const employee1: EmployeeDetails = {
+  name: "Sohan",
+  email: "sohan@gmail.com",
+  age: 21,
+  employeeId: "EMP-101",
+  salary: 45000,
+  department: "Software Development",
+};
 
-const user: UserRole[] = [
-  {
-    id: "sdofh",
-    name: "sohan",
-    role: "admin",
-    email: "islam@gmail.com",
-    permissions: ["create", "update", "delete"],
-  },
-  {
-    id: 101,
-    name: "islam",
-    role: "reporter",
-    email: "isl@gmail.com",
-    permission: ["read", "write"],
-  },
-];
-
-console.log(user);
+console.log(employee1);
