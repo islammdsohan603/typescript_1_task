@@ -1,11 +1,22 @@
-const showDate = (x: Date | string) => {
-  if (x instanceof Date) {
-    console.log(x.toISOString());
-    return;
-  }
+interface UserResponse {
+  name: string;
+  role: string;
+}
 
-  const date = new Date(x);
-  console.log(date.toISOString());
+interface ApiResponse<T> {
+  data: T;
+  success: boolean;
+  statuscode: number;
+}
+
+const response: ApiResponse<UserResponse> = {
+  data: {
+    name: "Sohan",
+    role: "Developer",
+  },
+  success: true,
+  statuscode: 200,
 };
 
-showDate("10-16-1974");
+console.log(response.data.name);
+console.log(response.data.role);
