@@ -1,46 +1,40 @@
-// problem 1
+// problem1-Type alias
 
-type Priduct = {
-  id: string;
+type Product = {
+  id: string | number;
   name: string;
   price: number;
   category?: string;
   stock?: number;
 };
 
-const product1: Priduct = {
-  id: "sohn34",
-  name: "PC",
-  price: 14897,
-  category: "EL",
-};
+const products: Product[] = [
+  {
+    id: 1458,
+    name: "PC BUILDING",
+    price: 98700,
+    category: "EL",
+    stock: 5,
+  },
+  {
+    id: 15,
+    name: "LOPTOP BUILDING",
+    price: 109700,
+    category: "EL",
+    stock: 2,
+  },
+];
 
-console.log(product1);
+console.log(products);
 
-interface problem2
+const productPrice = products.reduce((total, indx) => {
+  return total + indx.price;
+}, 0);
 
-interface Students {
-  name: string;
-  age: number;
-  email: string;
-  marks?: number[];
-  phone?: number;
-}
+console.log(`total products price: ${productPrice}`);
 
-const students1: Students = {
-  name: "sohan",
-  age: 21,
-  email: "sohan@gmail.com",
-  marks: [15, 8, 69],
-};
+const totalStockPrice = products.reduce((total, product) => {
+  return total + product.price * (product.stock ?? 0);
+}, 0);
 
-console.log(students1);
-
-const studentsMarks = students1.marks;
-
-if (studentsMarks) {
-
-  for (let x of studentsMarks) {
-    console.log(x);
-  }
-}
+console.log(`totalProdcutStock Price: ${totalStockPrice}`);
