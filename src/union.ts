@@ -1,40 +1,46 @@
-// problem1-Type alias
+// problem 2- interface
 
-type Product = {
-  id: string | number;
+interface Students {
   name: string;
-  price: number;
-  category?: string;
-  stock?: number;
-};
+  id: number | string;
+  email: string;
+  marks?: number[];
+  phone?: number;
+}
 
-const products: Product[] = [
+const students: Students[] = [
   {
-    id: 1458,
-    name: "PC BUILDING",
-    price: 98700,
-    category: "EL",
-    stock: 5,
+    id: "sohan",
+    name: "sohan islam",
+    email: "islammdsohan@gmail.com",
+    marks: [78, 98, 89, 85, 91],
   },
   {
-    id: 15,
-    name: "LOPTOP BUILDING",
-    price: 109700,
-    category: "EL",
-    stock: 2,
+    id: 864570,
+    name: " islam",
+    email: "isl@gmail.com",
+    marks: [89, 85, 91],
+    phone: 1894864577,
   },
 ];
 
-console.log(products);
+console.log(students);
 
-const productPrice = products.reduce((total, indx) => {
-  return total + indx.price;
-}, 0);
+const studectsMarks = students.map((student) => {
+  const totalMarks = (student.marks ?? []).reduce((total, mark) => {
+    return total + mark;
+  }, 0);
 
-console.log(`total products price: ${productPrice}`);
+  const avgMarks = totalMarks / (student.marks?.length || 1);
 
-const totalStockPrice = products.reduce((total, product) => {
-  return total + product.price * (product.stock ?? 0);
-}, 0);
+  const avg = avgMarks.toFixed(2);
 
-console.log(`totalProdcutStock Price: ${totalStockPrice}`);
+  return {
+    name: student.name,
+    id: student.id,
+    totalMarks,
+    avg,
+  };
+});
+
+console.log(studectsMarks);
