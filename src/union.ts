@@ -1,24 +1,7 @@
-type Person = {
-  name: string;
-  email: string;
-  age: number;
-};
+// problem 1 unkown type
 
-type Employee = {
-  employeeId: string;
-  salary: number;
-  department: string;
-};
+const variable: unknown = "sohan";
 
-type EmployeeDetails = Person & Employee;
-
-const employee1: EmployeeDetails = {
-  name: "Sohan",
-  email: "sohan@gmail.com",
-  age: 21,
-  employeeId: "EMP-101",
-  salary: 45000,
-  department: "Software Development",
-};
-
-console.log(employee1);
+if (typeof variable === "string") {
+  console.log(variable.toUpperCase());
+}
