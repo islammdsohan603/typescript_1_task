@@ -1,7 +1,11 @@
-// problem 1 unkown type
-
-const variable: unknown = "sohan";
-
-if (typeof variable === "string") {
-  console.log(variable.toUpperCase());
+interface Config {
+  port?: number;
 }
+
+const config: Config = {
+  port: 5000,
+};
+
+const currentPort: number = config.port!;
+
+console.log(currentPort);
