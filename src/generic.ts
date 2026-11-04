@@ -1,22 +1,17 @@
-interface UserResponse {
+interface User {
   name: string;
   role: string;
 }
 
-interface ApiResponse<T> {
-  data: T;
-  success: boolean;
-  statuscode: number;
-}
+const fetchUser = async (): Promise<User> => {
+  const res = await fetch("/api/v1/user");
 
-const response: ApiResponse<UserResponse> = {
-  data: {
-    name: "Sohan",
-    role: "Developer",
-  },
-  success: true,
-  statuscode: 200,
+  const data: User = await res.json();
+
+  return data;
 };
 
-console.log(response.data.name);
-console.log(response.data.role);
+const userData = await fetchUser();
+
+console.log(userData.name);
+console.log(userData.role);
