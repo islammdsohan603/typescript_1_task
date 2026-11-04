@@ -1,11 +1,15 @@
-interface Config {
-  port?: number;
-}
-
-const config: Config = {
-  port: 5000,
+const printAll = (x: string | string[] | null) => {
+  if (x !== null) {
+    if (typeof x === "object") {
+      for (let str of x) {
+        console.log(str);
+      }
+      return;
+    }
+    console.log(x);
+    return;
+  }
+  console.log("");
 };
 
-const currentPort: number = config.port!;
-
-console.log(currentPort);
+printAll(["sohan", "sohag"]);
