@@ -1,46 +1,37 @@
-// problem 2- interface
-
-interface Students {
+interface BaseUser {
   name: string;
-  id: number | string;
   email: string;
-  marks?: number[];
-  phone?: number;
+  id: string | number;
+  phone?: string;
 }
 
-const students: Students[] = [
+interface Admin extends BaseUser {
+  role: "admin";
+  permissions: string[];
+}
+
+interface Reporter extends BaseUser {
+  role: "reporter";
+  permission: string[];
+}
+
+type UserRole = Admin | Reporter;
+
+const user: UserRole[] = [
   {
-    id: "sohan",
-    name: "sohan islam",
-    email: "islammdsohan@gmail.com",
-    marks: [78, 98, 89, 85, 91],
+    id: "sdofh",
+    name: "sohan",
+    role: "admin",
+    email: "islam@gmail.com",
+    permissions: ["create", "update", "delete"],
   },
   {
-    id: 864570,
-    name: " islam",
+    id: 101,
+    name: "islam",
+    role: "reporter",
     email: "isl@gmail.com",
-    marks: [89, 85, 91],
-    phone: 1894864577,
+    permission: ["read", "write"],
   },
 ];
 
-console.log(students);
-
-const studectsMarks = students.map((student) => {
-  const totalMarks = (student.marks ?? []).reduce((total, mark) => {
-    return total + mark;
-  }, 0);
-
-  const avgMarks = totalMarks / (student.marks?.length || 1);
-
-  const avg = avgMarks.toFixed(2);
-
-  return {
-    name: student.name,
-    id: student.id,
-    totalMarks,
-    avg,
-  };
-});
-
-console.log(studectsMarks);
+console.log(user);
