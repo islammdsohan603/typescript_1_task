@@ -1,32 +1,16 @@
-abstract class UIComponent {
-  constructor(
-    public id: string,
-    public placeholder: string,
-  ) {}
+class Students {
+  name: string;
+  email: string;
 
-  abstract render(): string;
-}
-
-class Input extends UIComponent {
-  constructor(
-    public type: string,
-    id: string,
-    placeholder: string,
-  ) {
-    super(id, placeholder);
+  constructor(name: string, email: string) {
+    ((this.name = name), (this.email = email));
   }
 
-  render(): string {
-    return `<input type="${this.type}" id="${this.id}" placeholder="${this.placeholder}" />`;
+  getDisplay(): void {
+    console.log(`${this.name} and his email ${this.email}`);
   }
 }
 
-const emailInput = new Input("email", "email", "Enter your email");
+const student1 = new Students("sohan", "silam@gmail.com");
 
-const passwordInput = new Input("password", "password", "Enter your password");
-
-const textInput = new Input("text", "username", "Enter your username");
-
-console.log(emailInput.render());
-console.log(passwordInput.render());
-console.log(textInput.render());
+student1.getDisplay();
