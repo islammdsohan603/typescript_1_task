@@ -23,4 +23,10 @@ class Input extends UIComponent {
 
 const emailInput = new Input("email", "email", "Enter your email");
 
+const passwordInput = new Input("password", "password", "Enter your password");
+
+const textInput = new Input("text", "username", "Enter your username");
+
 console.log(emailInput.render());
+console.log(passwordInput.render());
+console.log(textInput.render());
