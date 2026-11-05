@@ -1,30 +1,35 @@
-class Employee {
+class User {
   public name: string;
-  private _baseSalary: number;
+  public email: string;
 
-  constructor(name: string, baseSalary: number) {
+  constructor(name: string, email: string) {
     this.name = name;
-    this._baseSalary = baseSalary;
-  }
-
-  get baseSalary(): number {
-    return this._baseSalary;
-  }
-
-  set baseSalary(newSalary: number) {
-    if (newSalary < 0) {
-      throw new Error("Salary cannot be negative value");
-    }
-
-    this._baseSalary = newSalary;
-  }
-
-  describe(): string {
-    return `${this.name} earns ${this.baseSalary}`;
+    this.email = email;
   }
 }
 
-const employee = new Employee("Sohan", 35400);
+class Admin extends User {
+  adminpermison: string[];
 
-console.log(employee);
-console.log(employee.describe());
+  constructor(name: string, email: string, adminpermison: string[]) {
+    super(name, email);
+    this.adminpermison = adminpermison;
+  }
+}
+
+class Reporter extends User {
+  publishArticle(): void {
+    console.log("Article Published");
+  }
+}
+
+const admin = new Admin("Sohan", "sohan@gmail.com", ["create", "deleted"]);
+
+// admin.deleteUser();
+
+console.log(admin);
+
+// const reporter = new Reporter("Rahim", "rahim@gmail.com");
+
+// reporter.login();
+// reporter.publishArticle();
