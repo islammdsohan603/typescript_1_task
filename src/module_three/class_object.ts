@@ -1,24 +1,19 @@
-// class
+class Account {
+  id: number;
+  private balance: number;
+  owner: string;
 
-class User {
-  // properties,methods, constructor
-
-  userName: string;
-  userAge: number;
-
-  constructor(userName: string, userAge: number) {
-    this.userName = userName;
-    this.userAge = userAge;
+  constructor(id: number, balance: number, owner: string) {
+    ((this.id = id), (this.balance = balance), (this.owner = owner));
   }
 
-  display(): void {
-    console.log(`User Name is ${this.userName} and age is ${this.userAge}`);
+  deposite(amount: number) {
+    if (amount <= 0) throw new Error("Invalid amount");
+    this.balance += amount;
   }
 }
 
-// class object
+const account = new Account(4, 1800, "sohan");
+account.deposite(4800);
 
-let user1 = new User("MD.SOHAN", 21);
-let user2 = new User("MD.SOHAG", 11);
-user1.display();
-user2.display();
+console.log(account);
