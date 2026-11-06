@@ -1,30 +1,29 @@
-class User {
-  public name: string;
-  constructor(name: string) {
-    this.name = name;
-  }
-}
-
-const user = new User("sohan");
-// console.log(user.name);
-
-// private
+// Encapsulation problem
 
 class BankAccount {
   private balance: number = 5000;
-  getBalance(): number {
-    return this.balance;
-  }
-
-  deposit(amount: number): void {
+  deposit(amount: number) {
     if (amount <= 0) {
-      throw new Error("Invalid amount");
+      throw new Error("Invalid deposit amount");
     }
 
     this.balance += amount;
   }
+
+  withdraw(amount: number) {
+    if (amount <= 0 || amount > this.balance) {
+      throw new Error("Invalid withdrawal amount");
+    }
+    this.balance -= amount;
+  }
+
+  getBalance(): number {
+    return this.balance;
+  }
 }
 
-const accont = new BankAccount();
-accont.deposit(2000);
-console.log(accont.getBalance());
+const account = new BankAccount();
+
+account.deposit(20000);
+account.withdraw(15000);
+console.log(account.getBalance());
