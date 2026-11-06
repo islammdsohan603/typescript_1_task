@@ -1,35 +1,60 @@
-class User {
-  public name: string;
-  public email: string;
+class Employee {
+  readonly id: number | string;
+  name: string;
+  email: string;
 
-  constructor(name: string, email: string) {
-    this.name = name;
-    this.email = email;
+  constructor(id: number | string, name: string, email: string) {
+    ((this.id = id), (this.name = name), (this.email = email));
   }
 }
 
-class Admin extends User {
-  adminpermison: string[];
+class Developer extends Employee {
+  developer: string;
 
-  constructor(name: string, email: string, adminpermison: string[]) {
-    super(name, email);
-    this.adminpermison = adminpermison;
+  constructor(
+    id: number | string,
+    name: string,
+    email: string,
+    developer: string,
+  ) {
+    super(id, name, email);
+    this.developer = developer;
+  }
+  writeCode(): void {
+    console.log(
+      `${this.name} is writing ${this.developer} code and his id${this.id}`,
+    );
   }
 }
 
-class Reporter extends User {
-  publishArticle(): void {
-    console.log("Article Published");
+class Designer extends Employee {
+  designTool: string;
+  constructor(
+    id: number | string,
+    name: string,
+    email: string,
+    designTool: string,
+  ) {
+    super(id, name, email);
+    this.designTool = designTool;
+  }
+
+  designUI(): void {
+    console.log(
+      `${this.name} is designing with ${this.designTool} his email is${this.email}`,
+    );
   }
 }
 
-const admin = new Admin("Sohan", "sohan@gmail.com", ["create", "deleted"]);
+const developer = new Developer(
+  "  141",
+  "sohan",
+  "sohan@gmail.com",
+  "TypeScript",
+);
 
-// admin.deleteUser();
+const deigner = new Designer(145, "MD.SOHAN", "islam@gmail.com", "PhotoShop");
 
-console.log(admin);
+deigner.designUI();
 
-// const reporter = new Reporter("Rahim", "rahim@gmail.com");
-
-// reporter.login();
-// reporter.publishArticle();
+developer.writeCode();
