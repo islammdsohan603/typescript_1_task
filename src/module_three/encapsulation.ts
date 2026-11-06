@@ -1,29 +1,38 @@
 // Encapsulation problem
 
-class BankAccount {
-  private balance: number = 5000;
-  deposit(amount: number) {
-    if (amount <= 0) {
-      throw new Error("Invalid deposit amount");
-    }
+//  public
 
-    this.balance += amount;
-  }
+// class User {
+//   public name: string = "sohan";
+// }
 
-  withdraw(amount: number) {
-    if (amount <= 0 || amount > this.balance) {
-      throw new Error("Invalid withdrawal amount");
-    }
-    this.balance -= amount;
-  }
+// const user = new User();
+// user.name = "Rahima";
+// console.log(user.name);
 
-  getBalance(): number {
-    return this.balance;
+// private
+
+class User {
+  private password: string = "12345we";
+  checkPassword(): void {
+    console.log(this.password);
   }
 }
 
-const account = new BankAccount();
+const user = new User();
+user.checkPassword();
 
-account.deposit(20000);
-account.withdraw(15000);
-console.log(account.getBalance());
+// protceted
+
+class Employee {
+  protected salary: number = 5000;
+}
+
+class Developer extends Employee {
+  showSalary(): void {
+    console.log(this.salary);
+  }
+}
+
+const developer = new Developer();
+developer.showSalary();
