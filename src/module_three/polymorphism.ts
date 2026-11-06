@@ -1,52 +1,34 @@
-class BankAccount {
-  readonly accId: number;
-  accHolderName: string;
-  private accBalance: number;
-
-  constructor(id: number, name: string, balance: number) {
-    if (balance < 0) {
-      throw new Error("Initial balance cannot be negative");
-    }
-
-    this.accId = id;
-    this.accHolderName = name;
-    this.accBalance = balance;
-  }
-
-  deposit(amount: number): void {
-    if (amount <= 0) {
-      throw new Error("Invalid deposit amount");
-    }
-
-    this.accBalance += amount;
-  }
-
-  withdraw(amount: number): void {
-    if (amount <= 0 || amount > this.accBalance) {
-      throw new Error("Invalid withdrawal amount");
-    }
-
-    this.accBalance -= amount;
-  }
-
-  getBalance(): number {
-    return this.accBalance;
-  }
-
-  getAccountInfo(): void {
-    console.log({
-      accId: this.accId,
-      accHolderName: this.accHolderName,
-      accBalance: this.accBalance,
-    });
+class Notification {
+  send(): void {
+    console.log("Sending Notification...");
   }
 }
 
-const userAccount = new BankAccount(145, "Sohan", 14584);
+class EmailNotfication extends Notification {
+  override send(): void {
+    console.log("Sending Email Notification");
+  }
+}
 
-userAccount.deposit(589000);
-userAccount.withdraw(5000);
+class SMSNotification extends Notification {
+  override send(): void {
+    console.log("Sending SMS Notification");
+  }
+}
 
-userAccount.getAccountInfo();
+class PushNotification extends Notification {
+  override send(): void {
+    console.log("Sending Push Notification");
+  }
+}
 
-console.log("Current Balance:", userAccount.getBalance());
+const notification: Notification[] = [
+  new EmailNotfication(),
+  new SMSNotification(),
+  new PushNotification(),
+];
+
+notification.forEach((notification) => {
+  notification.send();
+});
+

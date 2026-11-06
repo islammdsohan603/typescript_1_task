@@ -1,3 +1,5 @@
+// inheritance problem
+
 class Employee {
   readonly id: number | string;
   name: string;
