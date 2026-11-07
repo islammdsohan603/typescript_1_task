@@ -1,38 +1,31 @@
-// Encapsulation problem
+abstract class Payment {
+  protected amount: number;
 
-//  public
+  constructor(amount: number) {
+    if (amount <= 0) {
+      throw new Error("Invalid payment amount");
+    }
 
-// class User {
-//   public name: string = "sohan";
-// }
+    this.amount = amount;
+  }
 
-// const user = new User();
-// user.name = "Rahima";
-// console.log(user.name);
+  abstract processPayment(): void;
+}
 
-// private
-
-class User {
-  private password: string = "12345we";
-  checkPassword(): void {
-    console.log(this.password);
+class BkashPayment extends Payment {
+  processPayment(): void {
+    console.log(`Bkash Payment: ${this.amount}`);
   }
 }
 
-const user = new User();
-user.checkPassword();
-
-// protceted
-
-class Employee {
-  protected salary: number = 5000;
-}
-
-class Developer extends Employee {
-  showSalary(): void {
-    console.log(this.salary);
+class NagadPayment extends Payment {
+  processPayment(): void {
+    console.log(`Nagad Payment: ${this.amount}`);
   }
 }
 
-const developer = new Developer();
-developer.showSalary();
+const payment1 = new BkashPayment(500);
+const payment2 = new NagadPayment(1000);
+
+payment1.processPayment();
+payment2.processPayment();
