@@ -1,49 +1,85 @@
-// Problem 1 — Bank Account
-// একজন Customer-এর Bank Account তৈরি করবে।
+class ProductsManagement {
+  readonly productId: number;
+  public name: string;
+  private price: number;
+  private stock: number;
 
-// Requirements:
-// - readonly accountId: number
-// - accountHolder: string
-// - private balance: number
-// - getBalance() → Balance দেখাবে।
-// - deposit(amount) → টাকা জমা করবে।
-// - withdraw(amount) → টাকা উত্তোলন করবে।
-// - Balance-এর চেয়ে বেশি টাকা Withdraw করা যাবে না।
-
-class BankAccount {
-  readonly accountId: number;
-  accountHolder: string;
-  private balance: number;
-
-  constructor(accountID: number, accountHolder: string, balance: number) {
-    ((this.accountId = accountID),
-      (this.accountHolder = accountHolder),
-      (this.balance = balance));
-  }
-
-  getBalance(): number {
-    return this.balance;
-  }
-
-  deposit(amount: number): void {
-    if (this.balance <= 0 || amount < 0) {
-      throw new Error("Invalid amount");
+  constructor(productId: number, name: string, price: number, stock: number) {
+    if (!Number.isInteger(productId) || productId <= 0) {
+      throw new Error("Invalid product ID!");
     }
 
-    this.balance += amount;
-  }
-
-  withdraw(amount: number): void {
-    if (this.balance <= amount) {
-      throw new Error("Please currected amount enter");
+    if (!name.trim()) {
+      throw new Error("Product name is required!");
     }
 
-    this.balance -= amount;
+    if (!Number.isFinite(price) || price <= 0) {
+      throw new Error("Price must be greater than zero!");
+    }
+
+    if (!Number.isInteger(stock) || stock < 0) {
+      throw new Error("Stock must be a non-negative integer!");
+    }
+
+    this.productId = productId;
+    this.name = name;
+    this.price = price;
+    this.stock = stock;
+  }
+
+  // Get Product Information
+  getProductInfo(): string {
+    return `
+      Product ID: ${this.productId}
+      Product Name: ${this.name}
+      Product Price: ৳${this.price}
+      Available Stock: ${this.stock}
+    `;
+  }
+
+  // Get Price
+  getPrice(): number {
+    return this.price;
+  }
+
+  // Get Stock
+  getStock(): number {
+    return this.stock;
+  }
+
+  // Update Product Price
+  updatePrice(newPrice: number): void {
+    if (!Number.isFinite(newPrice) || newPrice <= 0) {
+      throw new Error("New price must be greater than zero!");
+    }
+
+    this.price = newPrice;
+  }
+
+  // Purchase Product
+  purchase(quantity: number): number {
+    if (!Number.isInteger(quantity) || quantity <= 0) {
+      throw new Error("Purchase quantity must be a positive integer!");
+    }
+
+    if (quantity > this.stock) {
+      throw new Error("Insufficient stock!");
+    }
+
+    this.stock -= quantity;
+
+    return this.stock;
   }
 }
 
-const bankHolder = new BankAccount(1015, "MD", 7800);
+// Create Product
+const product = new ProductsManagement(140, "PC", 140400, 5);
 
-bankHolder.deposit(48000);
+// Update Price
+product.updatePrice(10050);
 
-console.log(bankHolder.getBalance());
+// Purchase Product
+const remainingStock = product.purchase(2);
+
+console.log(product.getProductInfo());
+console.log("Remaining Stock:", remainingStock);
