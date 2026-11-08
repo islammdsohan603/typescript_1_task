@@ -1,36 +1,49 @@
-// employee salary practice problem
+// Problem 1 — Bank Account
+// একজন Customer-এর Bank Account তৈরি করবে।
 
-class Employee {
-  readonly employeeId: number;
-  name: string;
-  private salary: number;
+// Requirements:
+// - readonly accountId: number
+// - accountHolder: string
+// - private balance: number
+// - getBalance() → Balance দেখাবে।
+// - deposit(amount) → টাকা জমা করবে।
+// - withdraw(amount) → টাকা উত্তোলন করবে।
+// - Balance-এর চেয়ে বেশি টাকা Withdraw করা যাবে না।
 
-  constructor(employeeId: number, name: string, salary: number) {
-    if (salary < 0) {
-      throw new Error("Salary cannot be negative");
-    }
+class BankAccount {
+  readonly accountId: number;
+  accountHolder: string;
+  private balance: number;
 
-    ((this.employeeId = employeeId),
-      (this.name = name),
-      (this.salary = salary));
+  constructor(accountID: number, accountHolder: string, balance: number) {
+    ((this.accountId = accountID),
+      (this.accountHolder = accountHolder),
+      (this.balance = balance));
   }
 
-  getSalary(): number {
-    return this.salary;
+  getBalance(): number {
+    return this.balance;
   }
 
-  increaseSalary(amount: number): void {
-    if (amount <= 0) {
+  deposit(amount: number): void {
+    if (this.balance <= 0 || amount < 0) {
       throw new Error("Invalid amount");
     }
 
-    this.salary += amount;
+    this.balance += amount;
+  }
+
+  withdraw(amount: number): void {
+    if (this.balance <= amount) {
+      throw new Error("Please currected amount enter");
+    }
+
+    this.balance -= amount;
   }
 }
 
-const employee = new Employee(104, "Sohan", 8500);
+const bankHolder = new BankAccount(1015, "MD", 7800);
 
-employee.increaseSalary(5000);
-console.log("Employee Id:", employee.employeeId);
-console.log("Employee Name:", employee.name);
-console.log("Employee Salary:", employee.getSalary());
+bankHolder.deposit(48000);
+
+console.log(bankHolder.getBalance());
