@@ -1,31 +1,36 @@
-abstract class Payment {
-  protected amount: number;
+// employee salary practice problem
 
-  constructor(amount: number) {
-    if (amount <= 0) {
-      throw new Error("Invalid payment amount");
+class Employee {
+  readonly employeeId: number;
+  name: string;
+  private salary: number;
+
+  constructor(employeeId: number, name: string, salary: number) {
+    if (salary < 0) {
+      throw new Error("Salary cannot be negative");
     }
 
-    this.amount = amount;
+    ((this.employeeId = employeeId),
+      (this.name = name),
+      (this.salary = salary));
   }
 
-  abstract processPayment(): void;
-}
+  getSalary(): number {
+    return this.salary;
+  }
 
-class BkashPayment extends Payment {
-  processPayment(): void {
-    console.log(`Bkash Payment: ${this.amount}`);
+  increaseSalary(amount: number): void {
+    if (amount <= 0) {
+      throw new Error("Invalid amount");
+    }
+
+    this.salary += amount;
   }
 }
 
-class NagadPayment extends Payment {
-  processPayment(): void {
-    console.log(`Nagad Payment: ${this.amount}`);
-  }
-}
+const employee = new Employee(104, "Sohan", 8500);
 
-const payment1 = new BkashPayment(500);
-const payment2 = new NagadPayment(1000);
-
-payment1.processPayment();
-payment2.processPayment();
+employee.increaseSalary(5000);
+console.log("Employee Id:", employee.employeeId);
+console.log("Employee Name:", employee.name);
+console.log("Employee Salary:", employee.getSalary());
